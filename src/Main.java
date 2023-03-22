@@ -1,4 +1,5 @@
 import br.com.dio.desafio.dominio.Bootcamp;
+import br.com.dio.desafio.dominio.Conta;
 import br.com.dio.desafio.dominio.Curso;
 import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
@@ -22,9 +23,11 @@ public class Main {
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
+        /*
+         * System.out.println(curso1);
+         * System.out.println(curso2);
+         * System.out.println(mentoria);
+         */
 
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp Java Developer");
@@ -33,8 +36,12 @@ public class Main {
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
 
+        /* Instanciando contas */
+        Conta camila = new Conta("Camila", "Camila@gmail.com", "(19) 9123-3214");
+        Conta Joao = new Conta("João", "jao@gmail.com", "(19) 9123-3214");
+
         Dev devCamila = new Dev();
-        devCamila.setNome("Camila");
+        devCamila.setConta(camila);
         devCamila.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
         devCamila.progredir();
@@ -47,7 +54,7 @@ public class Main {
         System.out.println("-------");
 
         Dev devJoao = new Dev();
-        devJoao.setNome("Joao");
+        devJoao.setConta(Joao);
         devJoao.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         devJoao.progredir();
